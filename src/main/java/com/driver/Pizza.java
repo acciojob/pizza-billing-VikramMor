@@ -28,13 +28,13 @@ public class Pizza {
 
     public void addExtraCheese(){
         if(isVeg){
-            if(this.price == 300){
+            if(this.price == 300 && this.extraCheese == 0){
                 this.extraCheese = 80;
                 this.totalPrice += 80;
             }
         }
         if(!isVeg){
-            if(this.price == 400){
+            if(this.price == 400 && this.extraCheese == 0){
                 this.extraCheese = 80;
                 this.totalPrice += 80;
             }
@@ -43,13 +43,13 @@ public class Pizza {
 
     public void addExtraToppings(){
         if(isVeg){
-            if(this.price == 300){
+            if(this.price == 300 && this.extraTopping == 0){
                 this.extraCheese = 70;
                 this.totalPrice += 70;
             }
         }
         if(!isVeg){
-            if(this.price == 400){
+            if(this.price == 400 && this.extraTopping == 0){
                 this.extraCheese = 120;
                 this.totalPrice += 120;
             }
