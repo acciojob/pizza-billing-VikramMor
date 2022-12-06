@@ -5,12 +5,18 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
+    private boolean isCheeseAdded;
+    private boolean isToppingsAdded;
+    private boolean isPaperbagAdded;
     private int extraCheese;
     private int extraTopping;
     private int paperBag;
     private int totalPrice;
 
     public Pizza(Boolean isVeg){
+        this.isCheeseAdded = false;
+        this.isToppingsAdded = false;
+        this.isPaperbagAdded = false;
         this.isVeg = isVeg;
         if(isVeg){
             totalPrice += 300;
@@ -28,37 +34,44 @@ public class Pizza {
 
     public void addExtraCheese(){
         if(isVeg){
-            if(this.price == 300 && this.extraCheese == 0){
+            if(this.price == 300 && !isCheeseAdded){
                 this.extraCheese = 80;
                 this.totalPrice += 80;
+                isCheeseAdded = true;
             }
         }
         if(!isVeg){
-            if(this.price == 400 && this.extraCheese == 0){
+            if(this.price == 400 && !isCheeseAdded){
                 this.extraCheese = 80;
                 this.totalPrice += 80;
+                isCheeseAdded = true;
             }
         }
     }
 
     public void addExtraToppings(){
         if(isVeg){
-            if(this.price == 300 && this.extraTopping == 0){
+            if(this.price == 300 && !isToppingsAdded){
                 this.extraCheese = 70;
                 this.totalPrice += 70;
+                isToppingsAdded = true;
             }
         }
         if(!isVeg){
-            if(this.price == 400 && this.extraTopping == 0){
+            if(this.price == 400 && !isToppingsAdded){
                 this.extraCheese = 120;
                 this.totalPrice += 120;
+                isToppingsAdded = true;
             }
         }
     }
 
     public void addTakeaway(){
-        this.paperBag = 20;
-        this.totalPrice += 20;
+        if(!isPaperbagAdded){
+            this.paperBag = 20;
+            this.totalPrice += 20;
+            isPaperbagAdded = true;
+        }
     }
 
     public String getBill(){
