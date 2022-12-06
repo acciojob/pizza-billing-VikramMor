@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c599b61a-e4f9-4322-ab52-59dbdf6f3eab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/driver/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/driver/Pizza.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

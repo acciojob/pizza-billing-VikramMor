@@ -8,24 +8,29 @@ public class Pizza {
     private boolean isCheeseAdded;
     private boolean isToppingsAdded;
     private boolean isPaperbagAdded;
+    private boolean isBillGenerated;
     private int extraCheese;
     private int extraTopping;
     private int paperBag;
     private int totalPrice;
 
     public Pizza(Boolean isVeg){
+        this.isBillGenerated = false;
         this.isCheeseAdded = false;
         this.isToppingsAdded = false;
         this.isPaperbagAdded = false;
+        this.extraCheese = 80;
+        this.paperBag = 20;
         this.isVeg = isVeg;
         if(isVeg){
-            totalPrice += 300;
             this.price = 300;
+            this.extraTopping = 70;
         }
         else{
-            totalPrice += 400;
+            this.extraTopping = 120;
             this.price = 400;
         }
+        this.bill = "Base Price Of The Pizza: " + this.price + "\n";
     }
 
     public int getPrice(){
@@ -33,43 +38,22 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        if(isVeg){
-            if(this.price == 300 && !isCheeseAdded){
-                this.extraCheese = 80;
-                this.totalPrice += 80;
-                isCheeseAdded = true;
-            }
-        }
-        if(!isVeg){
-            if(this.price == 400 && !isCheeseAdded){
-                this.extraCheese = 80;
-                this.totalPrice += 80;
-                isCheeseAdded = true;
-            }
+        if(!isCheeseAdded){
+            this.price += this.extraCheese;
+            isCheeseAdded = true;
         }
     }
 
     public void addExtraToppings(){
-        if(isVeg){
-            if(this.price == 300 && !isToppingsAdded){
-                this.extraCheese = 70;
-                this.totalPrice += 70;
-                isToppingsAdded = true;
-            }
-        }
-        if(!isVeg){
-            if(this.price == 400 && !isToppingsAdded){
-                this.extraCheese = 120;
-                this.totalPrice += 120;
-                isToppingsAdded = true;
-            }
+        if(!isToppingsAdded){
+            this.price += this.extraTopping;
+            isToppingsAdded = true;
         }
     }
 
     public void addTakeaway(){
         if(!isPaperbagAdded){
-            this.paperBag = 20;
-            this.totalPrice += 20;
+            this.price += this.paperBag;
             isPaperbagAdded = true;
         }
     }
